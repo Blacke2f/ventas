@@ -1,0 +1,642 @@
+/**
+ * ===================================
+ * Estilos Personalizados GastroPOS
+ * ===================================
+ */
+
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+    --light-bg: #f8f9fa;
+    --border-color: #e5e7eb;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-white: #ffffff;
+}
+
+/* Smooth transitions — solo en elementos interactivos */
+a, button, .btn, .card, .form-control, .form-select, .nav-link {
+    transition: all 0.2s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Product Card */
+.product-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.product-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+
+/* Badges */
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.badge-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Table styles */
+.table thead th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(102, 126, 234, 0.05) !important;
+}
+
+/* Form controls */
+.form-control, .form-select {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-primary);
+    background-color: #ffffff;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.15);
+    background-color: #ffffff;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23667eea' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+}
+
+.form-select option {
+    padding: 0.5rem;
+    color: var(--text-primary);
+    background-color: #ffffff;
+}
+
+.form-select option:hover,
+.form-select option:checked {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Input group */
+.input-group-text {
+    background-color: var(--light-bg);
+    border: 2px solid var(--border-color);
+}
+
+/* Card improvements */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Solo los card-header SIN clase bg-* reciben el gradiente */
+.card-header:not([class*="bg-"]) {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-white);
+    border: none;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.1rem;
+}
+
+/* Texto dentro de card-header blanco (POS, dashboard, etc.) */
+.card-header.bg-white {
+    background: #ffffff !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 0.85rem 1.25rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+    color: var(--text-primary);
+}
+
+.card-title {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Tarjetas estadísticas */
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.stat-card .stat-change {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stat-card .stat-icon {
+    font-size: 2.5rem;
+    opacity: 0.15;
+    color: inherit;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* Modals */
+.modal-content {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* Alert styles */
+.alert {
+    border: none;
+    border-left: 4px solid;
+    border-radius: 6px;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    border-left-color: var(--success-color);
+    color: #047857;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    border-left-color: var(--danger-color);
+    color: #991b1b;
+}
+
+.alert-warning {
+    background-color: #fef3c7;
+    border-left-color: var(--warning-color);
+    color: #92400e;
+}
+
+.alert-info {
+    background-color: #dbeafe;
+    border-left-color: var(--info-color);
+    color: #1e40af;
+}
+
+/* Spinners */
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* Progress bars */
+.progress {
+    border-radius: 10px;
+    background-color: #e5e7eb;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* Tabs */
+.nav-tabs {
+    border-bottom: 2px solid var(--border-color);
+}
+
+.nav-tabs .nav-link {
+    color: #666;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    background-color: transparent;
+    border-bottom-color: var(--primary-color);
+}
+
+/* Dropdown */
+.dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+}
+
+/* Text utilities */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
+}
+
+.text-success {
+    color: var(--success-color) !important;
+}
+
+.text-warning {
+    color: var(--warning-color) !important;
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.text-dark {
+    color: var(--text-primary) !important;
+}
+
+/* Tasa de cambio */
+.exchange-rate-widget {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+    margin-bottom: 1rem;
+}
+
+.exchange-rate-widget .rate-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.exchange-rate-widget .rate-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.25rem 0;
+}
+
+.exchange-rate-widget .rate-update {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.exchange-rate-widget .btn-refresh {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.exchange-rate-widget .btn-refresh:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Precio dual (USD/Bs) */
+.price-dual {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.price-usd {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.price-bs {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Loading animation */
+@keyframes loading {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.loading {
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+/* Print styles */
+@media print {
+    .sidebar,
+    .topbar,
+    .btn,
+    .modal,
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus visible */
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MEJORAS MOBILE PROFESIONALES
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Bottom nav bar en móvil ──────────────────────────────────── */
+#mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 58px;
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+    z-index: 300;
+    box-shadow: 0 -4px 16px rgba(0,0,0,.08);
+}
+#mobile-nav a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: .6rem;
+    font-weight: 600;
+    padding: 6px 2px;
+    transition: color .15s;
+}
+#mobile-nav a i { font-size: 1.1rem; }
+#mobile-nav a.active, #mobile-nav a:hover { color: #6366f1; }
+#mobile-nav a .nav-dot {
+    width: 5px; height: 5px;
+    background: #6366f1;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .15s;
+}
+#mobile-nav a.active .nav-dot { opacity: 1; }
+
+@media (max-width: 767.98px) {
+    #mobile-nav { display: flex; }
+    /* Empujar contenido para que no quede detrás del nav */
+    #main { padding-bottom: 70px !important; }
+}
+
+/* ── FAB (botón flotante) POS ─────────────────────────────────── */
+.fab-pos {
+    display: none;
+    position: fixed;
+    bottom: 68px; right: 16px;
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(99,102,241,.45);
+    text-decoration: none;
+    z-index: 290;
+    transition: transform .2s, box-shadow .2s;
+}
+.fab-pos:hover { color: #fff; transform: scale(1.08); }
+@media (max-width: 767.98px) { .fab-pos { display: flex; } }
+
+/* ── Cards de métricas: más compactas en móvil ─────────────────── */
+@media (max-width: 767.98px) {
+    /* Dashboard metrics */
+    [style*="gradient"] .card-body { padding: 12px 14px !important; }
+    [style*="gradient"] h2 { font-size: 1.4rem !important; }
+    [style*="gradient"] .fa-lg { font-size: 1.1rem !important; }
+    [style*="gradient"] .p-3 { padding: 10px !important; }
+
+    /* Acciones rápidas en móvil: grid 2x2 */
+    .d-grid.gap-3 { gap: .6rem !important; }
+    .d-grid.gap-2 { gap: .5rem !important; }
+
+    /* Page title más compacto */
+    .page-title { font-size: 1.1rem; margin-bottom: 14px; }
+
+    /* Sidebar: tipografía de sección */
+    .sb-section { font-size: .6rem; }
+
+    /* Toast más ancho en móvil */
+    #toastContainer { left: 10px; right: 10px; max-width: none; }
+}
+
+/* ── Producto card en POS: más compacto ───────────────────────── */
+@media (max-width: 767.98px) {
+    .prod-card .prod-icon { height: 50px; font-size: 1.1rem; }
+    .prod-card .prod-name { font-size: .72rem; }
+    .prod-card .prod-usd  { font-size: .82rem; }
+    .prod-card .prod-bs   { font-size: .68rem; }
+    .prod-card .prod-stock{ font-size: .62rem; }
+    .prod-card { padding: 6px !important; }
+}
+
+/* ── Carrito en POS: ajustar altura ────────────────────────────── */
+@media (max-width: 767.98px) {
+    #carritoItems { max-height: 220px !important; }
+    .carrito-item .item-name  { font-size: .76rem; }
+    .carrito-item .item-price { font-size: .68rem; }
+}
+
+/* ── Tablas con scroll suave ────────────────────────────────────── */
+.table-responsive {
+    border-radius: 0 0 10px 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ── Form controls en modales ───────────────────────────────────── */
+@media (max-width: 767.98px) {
+    .modal-body .row { --bs-gutter-x: .5rem; }
+    .modal-body .mb-3 { margin-bottom: .75rem !important; }
+    .modal-footer { flex-wrap: nowrap; gap: 8px; }
+    .modal-footer .btn { flex: 1; }
+}
+
+/* ── Sidebar overlay más oscuro en móvil ────────────────────────── */
+#sb-overlay { backdrop-filter: blur(2px); }
+
+/* ── Scroll a top al abrir modal en móvil ───────────────────────── */
+.modal.show .modal-content { scroll-behavior: smooth; }
+
+/* ── Padding seguro para notch en iPhone ───────────────────────── */
+@supports (padding-top: env(safe-area-inset-top)) {
+    #topbar { padding-top: env(safe-area-inset-top); }
+    #mobile-nav { padding-bottom: env(safe-area-inset-bottom); height: calc(58px + env(safe-area-inset-bottom)); }
+    #main { padding-bottom: calc(70px + env(safe-area-inset-bottom)) !important; }
+}

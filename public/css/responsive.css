@@ -1,0 +1,187 @@
+/*
+ * AbasPOS — Diseño Responsive Mobile-First
+ * Optimizado para teléfonos, tablets y escritorio
+ */
+
+/* ══════════════════════════════════════════════════════════════
+   BASE MOBILE  (<768px)
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767.98px) {
+
+    /* ── Contenido principal ── */
+    #main {
+        padding-top: calc(var(--top-h, 56px) + 14px);
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 24px;
+    }
+
+    /* ── Cards ── */
+    .card {
+        border-radius: 10px;
+        margin-bottom: 12px;
+    }
+    .card-header { padding: 10px 14px; font-size: .85rem; }
+    .card-body   { padding: 12px 14px; }
+    .card-footer { padding: 10px 14px; }
+
+    /* ── Topbar ── */
+    #topbar { padding: 0 12px; }
+    #topbar .page-name { font-size: .82rem; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #topbar .top-time  { display: none !important; }
+    #topbar .user-name { display: none; }
+
+    /* ── Tablas: hacer scroll horizontal ── */
+    .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table { font-size: .78rem; min-width: 480px; }
+    .table thead th { padding: 8px 6px; font-size: .7rem; }
+    .table tbody td { padding: 7px 6px; }
+
+    /* ── Formularios: texto 16px evita zoom en iOS ── */
+    .form-control,
+    .form-select,
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    textarea,
+    select { font-size: 16px !important; }
+
+    /* ── Botones táctiles (mínimo 44px) ── */
+    .btn { min-height: 40px; font-size: .875rem; }
+    .btn-sm { min-height: 34px; font-size: .8rem; }
+    .btn-group .btn { min-height: 36px; }
+
+    /* ── Modales: pantalla completa en móvil ── */
+    .modal-dialog {
+        margin: 0;
+        min-height: 100dvh;
+        align-items: flex-end;
+    }
+    .modal-content {
+        border-radius: 16px 16px 0 0;
+        max-height: 92dvh;
+        overflow-y: auto;
+    }
+    .modal-dialog.modal-sm  { max-width: 100%; }
+    .modal-dialog.modal-lg  { max-width: 100%; }
+    .modal-dialog.modal-xl  { max-width: 100%; }
+
+    /* ── Nav tabs: scroll horizontal ── */
+    .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tabs .nav-link {
+        white-space: nowrap;
+        padding: 7px 12px;
+        font-size: .8rem;
+    }
+
+    /* ── Badges ── */
+    .badge { font-size: .68rem; padding: .28em .55em; }
+
+    /* ── Alertas ── */
+    .alert { font-size: .85rem; padding: 10px 12px; }
+
+    /* ── Row gaps más compactos ── */
+    .row.g-3 { --bs-gutter-x: .75rem; --bs-gutter-y: .75rem; }
+    .row.g-2 { --bs-gutter-x: .5rem;  --bs-gutter-y: .5rem;  }
+
+    /* ── Dashboard: métricas en 2 columnas ── */
+    .col-6.col-lg-3 { flex: 0 0 50%; max-width: 50%; }
+
+    /* ── Ocultar columnas de tabla en móvil si no son esenciales ── */
+    .hide-mobile { display: none !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MÓVIL PEQUEÑO  (<480px)
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 479.98px) {
+
+    #main { padding-left: 10px; padding-right: 10px; }
+
+    .card-body   { padding: 10px 12px; }
+    .card-header { padding: 9px 12px; font-size: .8rem; }
+
+    /* ── Tabla: mínimo más estrecho ── */
+    .table { font-size: .74rem; }
+    .table thead th { font-size: .65rem; padding: 6px 4px; }
+    .table tbody td { font-size: .74rem; padding: 6px 4px; }
+
+    /* ── Sidebar full-width al abrir ── */
+    #sidebar { width: 100% !important; }
+
+    /* ── Input group en stack ── */
+    .input-group-lg .form-control { font-size: 1.1rem; }
+
+    /* ── Grid de productos: 2 columnas ── */
+    .col-6.col-sm-4.col-md-3.col-xl-2 { flex: 0 0 50%; max-width: 50%; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TABLET  (768–1023px)
+═══════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+
+    :root { --sb-width: 200px; }
+
+    #main { padding-left: 16px; padding-right: 16px; }
+
+    .table { font-size: .83rem; }
+    .card-body { padding: 14px 16px; }
+    .nav-tabs .nav-link { padding: 7px 13px; font-size: .83rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ORIENTACIÓN LANDSCAPE en móvil
+═══════════════════════════════════════════════════════════════ */
+@media (max-height: 480px) and (orientation: landscape) {
+    .modal-dialog { align-items: flex-start; }
+    .modal-content { max-height: 96dvh; border-radius: 12px; }
+    #main { padding-top: calc(var(--top-h, 56px) + 10px); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DISPOSITIVOS DE TOQUE  (no hover)
+═══════════════════════════════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+    /* Botones más altos para dedos */
+    .btn { min-height: 44px; }
+    .btn-sm { min-height: 38px; }
+
+    /* Sin efectos hover en tarjetas (se ven raros en touch) */
+    .card:hover { transform: none; box-shadow: 0 1px 6px rgba(0,0,0,.05); }
+    .prod-card:hover { transform: none; }
+    .btn-primary:hover { transform: none; box-shadow: none; }
+
+    /* Área de toque ampliada en links del sidebar */
+    .sb-link { padding: 12px 18px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   IMPRESIÓN
+═══════════════════════════════════════════════════════════════ */
+@media print {
+    #sidebar, #topbar, .btn, .modal,
+    .no-print, .sb-toggle-btn, #sb-overlay { display: none !important; }
+    #main { margin: 0; padding: 0; }
+    .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+    .table th, .table td { border: 1px solid #ccc; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOVIMIENTO REDUCIDO
+═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
